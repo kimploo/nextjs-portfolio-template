@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-prop-types */
+
 import Link from 'next/link';
 import Avatar from './avatar';
 import DateFormatter from './date-formatter';
@@ -7,17 +9,18 @@ import Author from '../types/author';
 type Props = {
   title: string;
   coverImage: string;
-  date: string;
-  excerpt: string;
-  author: Author;
+  date?: string;
+  excerpt?: string;
+  author?: Author;
   slug: string;
 };
 
-const PostPreview = ({ title, coverImage, date, excerpt, author, slug }: Props) => {
+const PostPreview = ({ title, coverImage, slug }: Props) => {
   return <CoverImage slug={slug} title={title} src={coverImage} />;
 };
 
 export default PostPreview;
+
 /* <h3 className='text-3xl mb-3 leading-snug'>
         <Link as={`/posts/${slug}`} href='/posts/[slug]'>
           <a className='hover:underline'>{title}</a>

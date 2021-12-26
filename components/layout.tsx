@@ -14,7 +14,6 @@ const Layout = function ({ children }: Props) {
       <div className='min-h-screen'>
         <main>{children}</main>
       </div>
-      <Footer />
     </>
   );
 };

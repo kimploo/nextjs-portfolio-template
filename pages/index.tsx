@@ -1,34 +1,34 @@
 import Head from 'next/head';
-import Container from '../components/container';
-import Intro from '../components/intro';
-import Layout from '../components/layout';
-import PostContainer from '../components/post-container';
-import { getAllPosts } from '../lib/api';
+import Header from '../components/header';
 import { CMS_NAME } from '../lib/constants';
-import Post from '../types/post';
+import { getAllContents } from '../lib/api';
+import type Post from '../types/post';
+import Footer from '../components/footer';
 
 type Props = {
   allPosts: Post[];
 };
 
-const Index = ({ allPosts }: Props) => {
+export default function Index({ allPosts }: Props) {
+  const coverPost = allPosts[0];
+  const { title, coverImage } = coverPost;
+
   return (
-    <Layout>
+    <>
       <Head>
         <title>Next.js Blog Example with {CMS_NAME}</title>
       </Head>
-      <Container>
-        <Intro />
-        <PostContainer posts={allPosts} />
-      </Container>
-    </Layout>
+      <Header />
+      <a className='' href='/illustration'>
+        <img className='w-full' src={coverImage} alt={title} />
+      </a>
+      <Footer />
+    </>
   );
-};
-
-export default Index;
+}
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt']);
+  const allPosts = getAllContents(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'], 'cover');
 
   return {
     props: { allPosts },
