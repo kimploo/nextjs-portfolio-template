@@ -13,6 +13,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'jsx-a11y/no-noninteractive-element-interactions': 0,
+    'react/jsx-props-no-spreading': 0,
     'react/react-in-jsx-scope': 0,
     'react/function-component-definition': 0,
     'react/require-default-props': 0,
