@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ReactElement } from 'react';
 import Container from '../../components/container';
 import Header from '../../components/header';
-import PostContainer from '../../components/post-container';
+import IllustrationContainer from '../../components/illustration-container';
 import { getAllContents } from '../../lib/api';
 import { CMS_NAME } from '../../lib/constants';
 import Post from '../../types/post';
@@ -15,7 +15,7 @@ export default function Index({ allPosts }: Props) {
   return (
     <>
       <Header />
-      <PostContainer posts={allPosts} />
+      <IllustrationContainer posts={allPosts} />
     </>
   );
 }
