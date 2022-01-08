@@ -7,10 +7,10 @@ type Props = {
   slug?: string;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+export default function WorkCoverImage({ title, src, slug }: Props) {
   const image = <img className='object-cover' src={src} alt={title} />;
   return slug ? (
-    <Link as={`/posts/${slug}`} href='/posts/[slug]'>
+    <Link as={`/work/${slug}`} href='/work/[slug]'>
       <a className='contents' aria-label={title}>
         {image}
       </a>
@@ -18,6 +18,4 @@ const CoverImage = ({ title, src, slug }: Props) => {
   ) : (
     image
   );
-};
-
-export default CoverImage;
+}
