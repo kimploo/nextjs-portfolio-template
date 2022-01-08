@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Avatar from './avatar';
 import DateFormatter from './date-formatter';
-import CoverImage from './cover-image';
+import CoverImage from './work-cover-image';
 import Author from '../types/author';
 
 type Props = {

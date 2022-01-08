@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
-import CoverImage from './cover-image';
+import CoverImage from './work-cover-image';
 import Author from '../types/author';
 
 type Props = {
