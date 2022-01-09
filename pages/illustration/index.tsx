@@ -10,6 +10,7 @@ import Post from '../../types/post';
 type Props = {
   allPosts: Post[];
 };
+// TODO: 일러스트는 클릭하면 크게 보이게 한 다음에 preview로 계속 돌면서 볼 수 있게 만든다.
 
 export default function Index({ allPosts }: Props) {
   return (

@@ -8,10 +8,11 @@ type Props = {
 };
 
 export default function WorkCoverImage({ title, src, slug }: Props) {
-  const image = <img className='object-cover' src={src} alt={title} />;
+  const image = <img className='object-contain' src={src} alt={title} />;
+
   return slug ? (
     <Link as={`/work/${slug}`} href='/work/[slug]'>
-      <a className='contents' aria-label={title}>
+      <a className="bg-red-400" aria-label={title}>
         {image}
       </a>
     </Link>
