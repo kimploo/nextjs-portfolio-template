@@ -8,15 +8,15 @@ import Author from '../types/author';
 
 type Props = {
   title: string;
-  coverImage: string;
+  thumbnailUrl: string;
   date?: string;
   excerpt?: string;
   author?: Author;
   slug: string;
 };
 
-const PostPreview = ({ title, coverImage, slug }: Props) => {
-  return <CoverImage slug={slug} title={title} src={coverImage} />;
+const PostPreview = ({ title, thumbnailUrl, slug }: Props) => {
+  return <CoverImage slug={slug} title={title} src={thumbnailUrl} />;
 };
 
 export default PostPreview;

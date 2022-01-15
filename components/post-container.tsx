@@ -11,8 +11,8 @@ const PostContainer = ({ posts }: Props) => {
       {posts.map((post) => (
         <PostPreview
           key={post.slug}
-          title={post.title}
-          coverImage={post.coverImage}
+          name={post.name}
+          thumbnailUrl={post.thumbnailUrl}
           date={post.date}
           author={post.author}
           slug={post.slug}

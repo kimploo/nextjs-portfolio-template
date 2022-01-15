@@ -21,7 +21,7 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllContents(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'], 'work');
+  const allPosts = getAllContents(['title', 'date', 'slug', 'author', 'thumbnailUrl', 'excerpt'], 'work');
 
   return {
     props: { allPosts },

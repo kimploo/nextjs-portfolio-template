@@ -4,13 +4,13 @@ import Author from '../types/author';
 
 type Props = {
   title: string;
-  coverImage: string;
+  thumbnailUrl: string;
   date?: string;
   excerpt?: string;
   author?: Author;
   slug: string;
 };
 
-export default function WorkPreview({ title, coverImage, slug }: Props) {
-  return <WorkCoverImage slug={slug} title={title} src={coverImage} />;
+export default function WorkPreview({ title, thumbnailUrl, slug }: Props) {
+  return <WorkCoverImage slug={slug} title={title} src={thumbnailUrl} />;
 }

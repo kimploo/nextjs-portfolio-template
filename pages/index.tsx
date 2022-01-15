@@ -11,7 +11,7 @@ type Props = {
 
 export default function Index({ allPosts }: Props) {
   const coverPost = allPosts[0];
-  const { title, coverImage } = coverPost;
+  const { title, thumbnailUrl } = coverPost;
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Index({ allPosts }: Props) {
       </Head>
       <Header />
       <a className='' href='/illustration'>
-        <img className='w-full' src={coverImage} alt={title} />
+        <img className='w-full' src={thumbnailUrl} alt={title} />
       </a>
       <Footer />
     </>
@@ -28,7 +28,7 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllContents(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'], 'cover');
+  const allPosts = getAllContents(['title', 'date', 'slug', 'author', 'thumbnailUrl', 'excerpt'], 'cover');
 
   return {
     props: { allPosts },

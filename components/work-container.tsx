@@ -13,7 +13,7 @@ export default function WorkContainer({ work }: Props) {
         <WorkPreview
           key={post.slug}
           title={post.title}
-          coverImage={post.coverImage}
+          thumbnailUrl={post.thumbnailUrl}
           date={post.date}
           author={post.author}
           slug={post.slug}
