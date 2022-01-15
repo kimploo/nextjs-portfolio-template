@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
+    "composite": true,
     "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "esnext",
     "jsx": "preserve",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "allowJs": true,
     "noEmit": true,
     "moduleResolution": "node",
@@ -24,6 +25,8 @@
   ],
   "include": [
     "next-env.d.ts",
+    "**/*.js",
+    "**/*.jsx",
     "**/*.ts",
     "**/*.tsx"
   ]

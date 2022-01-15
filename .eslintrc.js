@@ -1,7 +1,20 @@
-module.exports = {
+export default {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
-  extends: ['airbnb', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:prettier/recommended'],
+  extends: [
+    'next',
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'jest', 'react', 'prettier'],
+  env: {
+    es6: true,
+    browser: true,
+    jest: true,
+  },
   rules: {
     'linebreak-style': 0,
     'import/prefer-default-export': 0,
@@ -17,5 +30,23 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/function-component-definition': 0,
     'react/require-default-props': 0,
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
+    },
+    react: {
+      version: 'detect',
+    },
+  },
+  parserOptions: {
+    // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2018, // Allows for the use of imports
+    sourceType: 'module',
+    // https://blog.geographer.fr/eslint-parser-services, https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+    project: './tsconfig.json',
   },
 };
