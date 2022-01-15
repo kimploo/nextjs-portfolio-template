@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
-import CoverImage from './work-cover-image';
+import IllustrationCoverImage from './illustration-cover-image';
 import Author from '../types/author';
 
 type Props = {
@@ -12,5 +12,5 @@ type Props = {
 };
 
 export default function IllustrationPreview({ title, coverImage, slug }: Props) {
-  return <CoverImage slug={slug} title={title} src={coverImage} />;
+  return <IllustrationCoverImage slug={slug} title={title} src={coverImage} />;
 }
