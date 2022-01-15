@@ -1,5 +1,5 @@
 /* eslint-disable default-param-last */
-import { readdirSync, readFileSync } from 'fs';
+import { Dirent, readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
@@ -36,6 +36,48 @@ export function getSlugs(path: string) {
 
       return items;
     },
+  };
+}
+
+/**
+ * function getAllWork
+ * public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
+ * @param {string} category 작품 카테고리
+ */
+export function getAllWork(category: string) {
+  const categoryDir = join(process.cwd(), 'public', category);
+  const workDirs = readdirSync(categoryDir, { withFileTypes: true }).filter((file) => file.isDirectory());
+  const works = workDirs.map((work) => getWorkDetail(categoryDir, work.name));
+}
+
+// public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
+export function getWorkDetail(categoryDir: string, workName: string) {
+  const workPath = join(categoryDir, workName);
+  const work = readdirSync(workPath, { withFileTypes: true });
+  const dirs = work.filter((file) => file.isDirectory());
+  const files = work.filter((file) => file.isFile());
+
+  const detailDir = dirs.find((dir) => dir.name.includes('detail'));
+  const coverDir = files.find((dir) => dir.name.includes('cover') && /^.*\.(jpg|jpeg|gif|png|svg)$/gi.test(dir.name));
+  const indexDir = files.find((dir) => dir.name.includes('index.md'));
+
+  if (!detailDir || !coverDir || !indexDir) {
+    throw new Error(`getWorkDetail error: 양식에 맞게 작품을 public 폴더에 넣어주세요.`);
+  }
+
+  const detail = readdirSync(join(workPath, 'detail'), { withFileTypes: true })
+    .filter((file) => file.isFile() && /^.*\.(jpg|jpeg|gif|png|svg)$/gi.test(file.name))
+    .map((dirent) => join(workPath, 'detail', dirent.name));
+
+  const coverPath = join(workPath, coverDir.name);
+  const indexString = readFileSync(join(workPath, 'index.md'), 'utf8');
+  const index = matter(indexString);
+  console.log(index.matter);
+
+  return {
+    detail,
+    coverPath,
+    index,
   };
 }
 
