@@ -1,8 +1,8 @@
-import Post from '../types/post';
+import Work from '../types/work';
 import WorkPreview from './work-preview';
 
 type Props = {
-  work: Post[];
+  work: Work[];
   // TODO: work 타입 새로 만들기
 };
 

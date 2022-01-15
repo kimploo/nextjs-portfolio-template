@@ -48,8 +48,11 @@ export function getAllWork(category: string) {
   const categoryDir = join(process.cwd(), 'public', category);
   const workDirs = readdirSync(categoryDir, { withFileTypes: true }).filter((file) => file.isDirectory());
   const works = workDirs.map((work) => getWorkDetail(categoryDir, work.name));
+  // TODO: parseMetaData 부분 적용하고, 리펙토링하기
 }
 
+
+// TODO: jsdoc
 // public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
 export function getWorkDetail(categoryDir: string, workName: string) {
   const workPath = join(categoryDir, workName);
@@ -72,7 +75,6 @@ export function getWorkDetail(categoryDir: string, workName: string) {
   const coverPath = join(workPath, coverDir.name);
   const indexString = readFileSync(join(workPath, 'index.md'), 'utf8');
   const index = matter(indexString);
-  console.log(index.matter);
 
   return {
     detail,

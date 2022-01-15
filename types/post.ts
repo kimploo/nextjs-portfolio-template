@@ -1,3 +1,5 @@
+// TODO: better types
+
 import Author from './author';
 
 type PostType = {
