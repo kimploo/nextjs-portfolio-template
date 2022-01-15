@@ -10,8 +10,8 @@
 ```md
   ---
   title: '마주치장'
-  kexcerpt: ''
-  coverImage: '/work/assets/마주치장.png'
+  excerpt: ''
+  thumbnailUrl: '/work/assets/마주치장.png'
   date: '2020-03-16T05:35:07.322Z'
   author:
     name: Hyodee Kim 
