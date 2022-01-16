@@ -40,20 +40,11 @@ export function getSlugs(path: string) {
 }
 
 /**
- * function getAllWork
- * public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
- * @param {string} category 작품 카테고리
+ * function getWorkDetail
+ * public/${category} 디렉토리의 작품 하나를 조회합니다.
+ * @param {string} categoryDir 작품 카테고리
+ * @param {string} workName 작품 이름
  */
-export function getAllWork(category: string) {
-  const categoryDir = join(process.cwd(), 'public', category);
-  const workDirs = readdirSync(categoryDir, { withFileTypes: true }).filter((file) => file.isDirectory());
-  const works = workDirs.map((work) => getWorkDetail(categoryDir, work.name));
-  // TODO: parseMetaData 부분 적용하고, 리펙토링하기
-}
-
-
-// TODO: jsdoc
-// public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
 export function getWorkDetail(categoryDir: string, workName: string) {
   const workPath = join(categoryDir, workName);
   const work = readdirSync(workPath, { withFileTypes: true });
@@ -81,6 +72,18 @@ export function getWorkDetail(categoryDir: string, workName: string) {
     coverPath,
     index,
   };
+}
+
+/**
+ * function getAllWork
+ * public/${category} 디렉토리의 모든 작품의 경로를 조회합니다.
+ * @param {string} category 작품 카테고리
+ */
+export function getAllWork(category: string) {
+  const categoryDir = join(process.cwd(), 'public', category);
+  const workDirs = readdirSync(categoryDir, { withFileTypes: true }).filter((file) => file.isDirectory());
+  const works = workDirs.map((work) => getWorkDetail(categoryDir, work.name));
+  // TODO: parseMetaData 부분 적용하고, 리펙토링하기
 }
 
 export function getAllContents(fields: string[] = [], category: string) {
