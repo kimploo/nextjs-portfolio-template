@@ -8,5 +8,4 @@ author:
 ogImage:
   url: '/work/assets/마주치장.png'
 ---
-
 something here
